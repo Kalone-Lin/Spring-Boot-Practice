@@ -30,4 +30,17 @@ public class UserServiceImpl implements UserService {
     public List<User> queryUserList() {
         return userRepository.findAll();
     }
+
+    /**
+     * 创建用户
+     *
+     * @param
+     * @author shelin 2021-02-25 16:04
+     * @return
+     */
+    @Override
+    public User createUser(User user) {
+        User saveUser = userRepository.save(user);
+        return saveUser;
+    }
 }

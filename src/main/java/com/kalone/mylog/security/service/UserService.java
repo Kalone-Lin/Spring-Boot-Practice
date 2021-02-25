@@ -19,4 +19,13 @@ public interface UserService {
      * @return
      */
     List<User> queryUserList();
+
+    /**
+     * 创建用户
+     *
+     * @param
+     * @author shelin 2021-02-25 16:04
+     * @return
+     */
+    User createUser(User user);
 }

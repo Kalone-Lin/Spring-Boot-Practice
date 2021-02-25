@@ -18,8 +18,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // 配置拦截规则
-        http.authorizeRequests().antMatchers("/login").permitAll()
-        .antMatchers("/").hasRole("ADMIN");
+        http.authorizeRequests().antMatchers("/**").permitAll().and().csrf().disable();
+        //.antMatchers("/").hasRole("ADMIN");
         // 配置登录功能
         http.formLogin().usernameParameter("userName").passwordParameter("passWord").loginPage("/login");
         // 注销成功跳转首页
