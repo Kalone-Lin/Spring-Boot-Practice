@@ -9,8 +9,8 @@ import javax.persistence.*;
  * @author shelin 2021/02/25 9:31
  */
 @Entity
-@Table(name = "user_info")
-public class User {
+@Table(name = "sys_user")
+public class SysUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,9 +22,6 @@ public class User {
 
     @Column(name="password")
     private String passWord;
-
-    @Column(name="role")
-    private String role;
 
     public Long getId() {
         return id;
@@ -50,11 +47,4 @@ public class User {
         this.passWord = passWord;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
 }

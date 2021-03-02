@@ -1,6 +1,6 @@
 package com.kalone.mylog.security.dao;
 
-import com.kalone.mylog.security.dto.User;
+import com.kalone.mylog.security.dto.SysUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -15,11 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
  * @author shelin 2021/02/25 16:12
  */
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface SysUserRepository extends JpaRepository<SysUser, Long> {
 
-    @Query(value = "insert into user_info(username,password,role) values(?,?,?)", nativeQuery = true)
-    @Transactional
-    @Modifying
-    int createUser(@Param("user") User user);
+    @Query(value = "select id,username,password from sys_user where username = :username", nativeQuery = true)
+    SysUser findByUsername(@Param("username") String username);
 
 }

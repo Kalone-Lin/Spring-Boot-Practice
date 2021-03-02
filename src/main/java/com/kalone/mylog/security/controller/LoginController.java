@@ -1,6 +1,6 @@
 package com.kalone.mylog.security.controller;
 
-import com.kalone.mylog.security.dto.User;
+import com.kalone.mylog.security.dto.SysUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,12 +22,12 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public ModelAndView postLogin(ModelAndView modelAndView, User user) {
-        if (StringUtils.isEmpty(user.getUserName())) {
+    public ModelAndView postLogin(ModelAndView modelAndView, SysUser SysUser) {
+        if (StringUtils.isEmpty(SysUser.getUserName())) {
             modelAndView.addObject("errormsg","账号不能为空");
             return modelAndView;
         }
-        if (StringUtils.isEmpty(user.getPassWord())) {
+        if (StringUtils.isEmpty(SysUser.getPassWord())) {
             modelAndView.addObject("errormsg","密码不能为空");
             return modelAndView;
         }
